@@ -1,3 +1,26 @@
+
+// ヘッダー
+.navbar-brand img{
+  width: 75px;
+  height: 75px;
+}
+
+.navbar {
+  background-color: #e3acae;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  opacity: 95%;
+}
+// mainの背景
+main{
+  padding-top: 130px;
+  background-color: #fafdff;
+  height: 1600px;
+}
+
+
 .about-box {
   width: 450px;
   height: 200px;
@@ -20,3 +43,4 @@
   height: 150px;
   background-color: white;
 }
+
