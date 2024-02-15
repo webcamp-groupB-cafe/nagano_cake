@@ -31,16 +31,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       collection do
         delete "destroy_all"
       end
-    end
+  end
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   resources :customers, only: [:unsubscribe, :withdraw]
   get 'customers/my_page' => "customers#show"
   get 'customers/information/edit' => "customers#edit"
   get 'customers/information' => "customers#update"
  resources :items, only: [:index, :show]
-  root to: 'homes#top'
-  get '/about' => "homes#about"
-  devise_for :admins
-  devise_for :customers
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
