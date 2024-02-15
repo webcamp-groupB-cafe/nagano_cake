@@ -1,9 +1,14 @@
-<h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
-<div>
-  <%=  @items.each do |item| %>
-    <%= item.image(250,250) %>
-    <%= item.name %>
-    <p>￥<%= item.price %></p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
+      <div>
+        <%=  @items.each do |item| %>
+          <%= item_tag item.image(250,300) %>
+          <%= item.name %>
+          <p>￥<%= item.with_tax_price.to_i %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
