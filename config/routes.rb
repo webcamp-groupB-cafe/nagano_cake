@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-   
-  
+
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -13,7 +13,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  
+
  root to: 'homes#top'
   get '/about' => "homes#about"
   namespace :admin do
@@ -26,10 +26,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   resources :adresses, only: [:index, :edit, :create, :update, :destroy]
   resources :orders, only: [:new, :thanks, :index, :show, :confirm, :create]
+  get 'orders/thanks' => "orders#thanks"
   resources :cart_items, only: [:index, :update, :destroy, :create] do
-      collection do 
+      collection do
         delete "destroy_all"
-      end 
+      end
     end
   resources :customers, only: [:unsubscribe, :withdraw]
   get 'customers/my_page' => "customers#show"
