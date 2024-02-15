@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
       <div>
         <%=  @items.each do |item| %>
@@ -9,6 +9,5 @@
           <p>￥<%= item.with_tax_price.to_i %></p>
         <% end %>
       </div>
-    </div>
   </div>
 </div>
