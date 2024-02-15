@@ -12,27 +12,27 @@
 <table class="table table-bordered">
   <tr>
     <th class="table-secondary w-25">氏名</th>
-    <td></td>
+    <td><%= @customer.first_name %> <%= @customer.last_name %></td>
   </tr>
   <tr>
     <th class="table-secondary">カナ</th>
-    <td></td>
+    <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
   </tr>
   <tr>
     <th class="table-secondary">郵便番号</th>
-    <td></td>
+    <td><%= @customer.postal_code %></td>
   </tr>
   <tr>
     <th class="table-secondary">住所</th>
-    <td></td>
+    <td><%= @customer.address %></td>
   </tr>
   <tr>
     <th class="table-secondary">電話番号</th>
-    <td></td>
+    <td><%= @customer.telephone_number %></td>
   </tr>
   <tr>
     <th class="table-secondary">メールアドレス</th>
-    <td></td>
+    <td><%= @customer.email %></td>
   </tr>
 </table>
 </div>
