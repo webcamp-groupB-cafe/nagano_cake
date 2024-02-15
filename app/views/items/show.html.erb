@@ -1,2 +1,19 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+          <%= item.image(250,250) %>
+          <%= item.name %>
+          <%= item.introduction %>
+          <p>￥<%= item.with_tax_price.to_i %>(税込)</p>
+          <% if @item.is_active == TRUE %>
+            <%= form_with(model: @cart_item, url: cart_items_path, method: :post, local: true) do |f| %>
+              <%= f.label :amount, "個数選択" %>
+              <%= f.select :amount, [1..10] %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.submit "カートに入れる" %>
+            <% end %>
+          <% end %>
+    </div>
+  </div>
+</div>
+

@@ -26,7 +26,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   resources :adresses, only: [:index, :edit, :create, :update, :destroy]
   resources :orders, only: [:new, :thanks, :index, :show, :confirm, :create]
-  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+  resources :cart_items, only: [:index, :update, :destroy, :create] do
+      collection do 
+        delete "destroy_all"
+      end 
+    end
   resources :customers, only: [:unsubscribe, :withdraw]
   get 'customers/my_page' => "customers#show"
   get 'customers/information/edit' => "customers#edit"
