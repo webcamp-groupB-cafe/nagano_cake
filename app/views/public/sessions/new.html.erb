@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+    <div class="mx-auto">
+<h5>ログイン</h5>
+<p>会員の方はこちらからログイン</p>
+<%= form_for(resource, as: resource_name, url: customer_session_path(resource_name)) do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+<table>
+
+  <tr>
+  <td class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="field">
+    <%= f.label :パスワード %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </td>
+</tr>
+
+<tr>
+ <td class="actions">
+    <%= f.submit "ログイン" %>
+ </td>
+</tr>
+
+</table>
+<% end %>
+
+
+
+<p>会員登録がお済でない方</p>
+<p><%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
+</div>
+</div>
+</div>
+

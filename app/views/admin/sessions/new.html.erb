@@ -1,0 +1,27 @@
+<%= form_for(resource, as: resource_name, url: admin_session_path(resource_name)) do |f| %>
+  <%= render "admin/shared/error_messages", resource: resource %>
+
+<table>
+
+  <tr>
+  <td class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="field">
+    <%= f.label :パスワード %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </td>
+</tr>
+
+<tr>
+ <td class="actions">
+    <%= f.submit "ログイン" %>
+ </td>
+</tr>
+
+</table>
+<% end %>
