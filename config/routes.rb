@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 # 顧客用
 # URL /customers/sign_in ...
-devise_for :customers,skip: [:passwords], controllers: {
+devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -25,8 +25,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: "admins#top"
   end
   resources :adresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :orders, only: [:new, :index, :show, :confirm, :create]
   get 'orders/thanks' => "orders#thanks"
+  resources :orders, only: [:new, :index, :show, :confirm, :create] do
+    post :confirm, on: :collection
+  end
   resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
         delete "destroy_all"
