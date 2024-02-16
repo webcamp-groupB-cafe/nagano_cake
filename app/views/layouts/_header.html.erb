@@ -4,12 +4,12 @@
       <a class="navbar-brand"><img src="/assets/naganocake.jpg" ></a>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+        
+         
+        
         <% if customer_signed_in? %>
-          <div class="row mx-auto">ようこそ、名前さん！</div>
-        <% end %>
-        <% if customer_signed_in? %>
+         <div class="row mx-auto">ようこそ、<% current_customer.last_name %>さん！</div>
           <li>
-            <!--名前のところは後で-->
             <%= link_to "マイページ", customers_my_page_path, class: 'btn btn-light nav-link' %>
           </li>
           <li>
