@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 # 顧客用
 # URL /customers/sign_in ...
-devise_for :customers,skip: [:passwords], controllers: {
+devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -25,18 +25,22 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: "admins#top"
   end
   resources :adresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :orders, only: [:new, :index, :show, :confirm, :create]
   get 'orders/thanks' => "orders#thanks"
+  resources :orders, only: [:new, :index, :show, :confirm, :create] do
+    post :confirm, on: :collection
+  end
   resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
         delete "destroy_all"
       end
   end
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-  resources :customers, only: [:unsubscribe, :withdraw]
+  # resources :customers, only: [:unsubscribe, :withdraw]
   get 'customers/my_page' => "customers#show"
   get 'customers/information/edit' => "customers#edit"
-  get 'customers/information' => "customers#update"
+  patch 'customers/information' => "customers#update"
+  get 'customers/unsubscribe' => "customers#unsubscribe"
+  patch 'customers/withdraw' => "customers#withdraw"
  resources :items, only: [:index, :show]
 
 

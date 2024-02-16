@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
 
-  # before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def show
     @customer = current_customer
@@ -17,6 +17,16 @@ class CustomersController < ApplicationController
   end
 
   def unsubscribe
+  end
+
+  def withdraw
+    @customer = Customer.find(current_costomer.id)
+    #会員ステータスを退会へ変更する記述
+    @customer.update(is_active: false)
+    #セッション情報の削除
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

@@ -8,4 +8,10 @@ class Customer < ApplicationRecord
   has_many :adresses, dependent: :destroy
   
   enum is_active: { 有効: true, 無効: false}
+
+
+#退会ずみのユーザーが同じアカウントでログイン出来ないようにする記述
+  # def active_for_authentication?
+    # super && (is_active == true)
+  # end
 end
