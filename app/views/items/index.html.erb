@@ -5,7 +5,7 @@
       <div>
         <%=  @items.each do |item| %>
           <%= item_tag item.image(250,300) %>
-          <%= item.name %>
+          <%= link_to item.name, item_path(item.id)  %>
           <p>￥<%= item.with_tax_price.to_i %></p>
         <% end %>
       </div>
