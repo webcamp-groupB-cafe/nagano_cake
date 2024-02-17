@@ -24,7 +24,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :order_details, only: [:update]
     root to: "admins#top"
   end
-  resources :adresses, only: [:index, :edit, :create, :update, :destroy]
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   get 'orders/thanks' => "orders#thanks"
   resources :orders, only: [:new, :index, :show, :confirm, :create] do
     post :confirm, on: :collection
@@ -44,6 +44,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  resources :items, only: [:index, :show]
 
 
-
+#rails routes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
