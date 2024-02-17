@@ -3,7 +3,7 @@
     <div class="mx-auto">
 <h5>ログイン</h5>
 <p>会員の方はこちらからログイン</p>
-<%= form_for(resource, as: resource_name, url: customer_session_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: customer_session_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
 <table>
