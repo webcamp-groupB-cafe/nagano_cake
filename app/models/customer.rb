@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :adresses, dependent: :destroy
 
-  enum is_active: { 有効: true, 退会: false}
+  # enum is_active: { 有効: true, 退会: false}
 
 
 #退会ずみのユーザーが同じアカウントでログイン出来ないようにする記述
