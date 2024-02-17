@@ -3,7 +3,7 @@
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <div>配送先編集</div>
- <%= form_with model: @address, url: address_path, method: :patch do |f| %>
+ <%= form_with model: @address, url: address_path(@address), method: :patch do |f| %>
 　　　<table>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
