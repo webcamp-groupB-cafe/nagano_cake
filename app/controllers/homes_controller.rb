@@ -6,4 +6,10 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:image, :name, :price)
+  end
 end
