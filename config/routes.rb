@@ -17,12 +17,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  root to: 'homes#top'
   get '/about' => "homes#about"
   namespace :admin do
+    root to: "homes#top"
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :order_details, only: [:update]
-    root to: "admins#top"
+
   end
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   get 'orders/thanks' => "orders#thanks"

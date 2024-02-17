@@ -1,6 +1,6 @@
 <div class="container">
   <h3><%= @customer.first_name+@customer.last_name %>さんの会員詳細</h3>
-  
+
   <table class="table table-borderless table-sm">
     <tr>
       <td>会員ID</td>
@@ -32,7 +32,13 @@
     </tr>
     <tr>
       <td>会員ステータス</td>
-      <td><%= @customer.is_active %></td>
+      <td>
+        <% if @customer.is_active == true %>
+          <p class="text-success"><strong>有効</strong></p>
+        <% else %>
+          <p class="text-muted"><strong>退会</strong></p>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td></td>
