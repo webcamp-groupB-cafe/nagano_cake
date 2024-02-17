@@ -4,9 +4,9 @@
       <a class="navbar-brand"><img src="/assets/naganocake.jpg" ></a>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        
-         
-        
+
+
+
         <% if customer_signed_in? %>
          <div class="row mx-auto">ようこそ、<%= current_customer.last_name %>さん！</div>
           <li>
@@ -21,6 +21,24 @@
           <li>
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-light' %>
           </li>
+        <% elsif admin_signed_in? %>
+          <div class="row mx-auto">ようこそ、管理者さん！</div>
+          <li>
+            <%= link_to "商品一覧", admin_items_path, class: 'btn btn-light nav-link' %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-light nav-link' %>
+          </li>
+          <li>
+            <%=  link_to "注文履歴一覧", admin_root_path, class: 'btn btn-light nav-link' %>
+          </li>
+          <li>
+            <%=  link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-light nav-link' %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link btn btn-light' %>
+          </li>
+
         <% else %>
           <li>
             <%= link_to "About", about_path, class: 'btn btn-light nav-link' %>

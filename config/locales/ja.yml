@@ -27,6 +27,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
   date:
     abbr_day_names:
     - 日
@@ -201,3 +202,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  
+  is_active:
+    true: "有効"
+    false: "退会"

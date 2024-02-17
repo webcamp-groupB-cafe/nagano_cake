@@ -13,8 +13,13 @@
       </div>
 
           <h2>新着商品</h2>
-          <!--後で画像を取り出す記述を書く（リンクあり？）-->
+
           <% @items.each do |item| %>
+          <% if item.image.attached? %>
+          <%= image_tag item.image, size: "100x100" %>
+          <% else %>
+          <%= image_tag 'no_cake', size: "100x100" %>
+          <% end %>
           <%= item.name %>
           <%= item.price %>
           <% end %>
