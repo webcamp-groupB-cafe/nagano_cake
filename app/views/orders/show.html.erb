@@ -17,11 +17,11 @@
       </tr>
       <tr>
         <td>支払い方法</td>
-        <td><%= @order.payment_method_i18n %></td>
+        <td><%= @order.payment_method_i18n%></td>
       </tr>
       <tr>
         <td>ステータス</td>
-        <td><%= @order.order_status_i18n %></td>
+        <td><%= @order.status_i18n %></td>
       </tr>
     </table>
 
@@ -29,7 +29,7 @@
     <table class="table">
       <tr>
         <td>商品合計</td>
-        <td><%= @order.total_price %></td>
+        <td><%= @order.total_payment %></td>
       </tr>
       <tr>
         <td>配送料</td>
@@ -37,7 +37,7 @@
       </tr>
       <tr>
         <td>ご請求額</td>
-        <td><%= @order.total_payment + @order.shipping_cost %></td>
+        <td><%= @order.total_payment %></td>
       </tr>
     </table>
 
@@ -59,6 +59,6 @@
       <% end %>
     </table>
   </div>
-  
+ 
   </div>
 </div>

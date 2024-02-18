@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
     @addresses = Address.all
     end
 
-     def create
+      def create
     order = Order.new(order_params)
     order.save
     @cart_items = current_customer.cart_items.all
@@ -15,12 +15,12 @@ class OrdersController < ApplicationController
       @order_details.item_id = cart_item.item.id
       @order_details.price = cart_item.item.price
       @order_details.amount = cart_item.amount
-      @order_details.status = 0
+      @order_details.making_status = 0
       @order_details.save!
     end
 
     CartItem.destroy_all
-    redirect_to orders_completed_path
+    redirect_to orders_thanks_path
 
   end
 
@@ -42,6 +42,8 @@ class OrdersController < ApplicationController
       @order_new = Order.new
       render :confirm
   end
+    
+
 
     def thanks
     end
@@ -52,9 +54,8 @@ class OrdersController < ApplicationController
     end
     # 注文情報詳細
     def show
-     @order_details = OrderDetail.where(order_id: params[:id])
-
-    @order = current_customer
+    @order_details = OrderDetail.where(order_id: params[:id])
+    @order = Order.find(params[:id])
     end
 
     private
