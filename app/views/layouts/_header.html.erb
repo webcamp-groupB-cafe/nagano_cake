@@ -1,11 +1,10 @@
-<header>
+<header class="shadow-sm">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand"><img src="/assets/naganocake.jpg" ></a>
+      
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
-
 
         <% if customer_signed_in? %>
          <div class="row mx-auto">ようこそ、<%= current_customer.last_name %>さん！</div>
@@ -41,10 +40,10 @@
 
         <% else %>
           <li>
-            <%= link_to "About", about_path, class: 'btn btn-light nav-link' %>
+            <%= link_to "About", about_path, class: 'btn btn-light nav-link ' %>
           </li>
           <li>
-            <%= link_to "商品一覧", items_path, class: 'btn btn-light nav-link' %>
+            <%= link_to "商品一覧", items_path, class: 'btn btn-light nav-link ' %>
           </li>
           <li>
             <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-light nav-link' %>
