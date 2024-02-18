@@ -2,15 +2,17 @@
   <div class="row">
 
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
-      <div>
+      <div class="cake-item justify-content-between flex-row">
         <%  @items.each do |item| %>
-          <% if item.image.attached? %>
-          <%= image_tag item.image, size: "100x100" %>
-          <% else %>
-          <%= image_tag 'no_cake', size: "100x100" %>
-          <% end %>
-          <%= link_to item.name, item_path(item.id)  %>
-          <p>￥<%= item.with_tax_price.to_i %></p>
+          <div class="cake-box">
+            <% if item.image.attached? %>
+              <%= image_tag item.image, size: "100x100" %>
+            <% else %>
+              <%= image_tag 'no_cake', size: "100x100" %>
+            <% end %><br>
+            <%= link_to item.name, item_path(item.id)  %>
+            <p>￥<%= item.with_tax_price.to_i %></p>
+          </div>
         <% end %>
       </div>
   </div>
