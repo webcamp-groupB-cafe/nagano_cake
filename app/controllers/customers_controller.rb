@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
   end
 
   def withdraw
-    @customer = Customer.find(current_costomer.id)
+    @customer = Customer.find(current_customer.id)
     #会員ステータスを退会へ変更する記述
     @customer.update(is_active: false)
     #セッション情報の削除

@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
     <div class="mx-auto">
+      <%= flash[:notice] %>
 <h5>ログイン</h5>
 <p>会員の方はこちらからログイン</p>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
