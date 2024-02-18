@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-8">
+      <%= render 'layouts/error', model: @address %>
       <div>配送先編集</div>
  <%= form_with model: @address, url: address_path(@address), method: :patch do |f| %>
 　　　<table>
