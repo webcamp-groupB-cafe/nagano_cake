@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
       @order_details.item_id = cart_item.item.id
       @order_details.price = cart_item.item.price_excluding_tax
       @order_details.number = cart_item.amount
-      @order_details.manufacture_status = 0
+      @order_details.status = 0
       @order_details.save!
     end
 
