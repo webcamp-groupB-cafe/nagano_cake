@@ -2,16 +2,25 @@
   <div class="row">
 
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
-      <div class="cake-item justify-content-between flex-row">
+      
+      <div class="card-deck">
         <%  @items.each do |item| %>
-          <div class="cake-box">
-            <% if item.image.attached? %>
-              <%= image_tag item.image, size: "100x100" %>
-            <% else %>
-              <%= image_tag 'no_cake', size: "100x100" %>
-            <% end %><br>
-            <%= link_to item.name, item_path(item.id)  %>
-            <p>￥<%= item.with_tax_price.to_i %></p>
+          <div class="card shadow-sm cake-box text-center" style="max-width: 230px;">
+            <div class="card-img-top" >
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.attached? %>
+                <%= image_tag item.image, style: 'width: 100%; height: 150px' %>
+              <% else %>
+                <%= image_tag 'no_cake', style: 'width: 100%; height: 150px' %>
+              <% end %><br>
+              </div>
+              <h5 class="card-title pt-2">
+                <%= item.name %>
+              </h5>
+            <% end %>
+            <div class="card-text">
+              <p>￥<%= item.with_tax_price.to_i %></p>
+            </div>
           </div>
         <% end %>
       </div>
