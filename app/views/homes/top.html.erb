@@ -14,19 +14,18 @@
       </div>
 
           <h2>新着商品</h2>
-
+        <div class="new_items" style="display: flex; justify-content: space-around; ">
           <% @items.each do |item| %>
           <% if item.image.attached? %>
           <%= image_tag item.image, size: "100x100" %>
           <% else %>
           <%= image_tag 'no_cake', size: "100x100" %>
           <% end %>
-          <%= item.name %>
-          <%= item.price %>
+          <p><%= item.name %></p>
+           <p>￥<%= item.with_tax_price.to_i %></p>
           <% end %>
-          <div class="top-link">
-          <%= link_to "全ての商品を見る >", items_path %>
           </div>
+          <p style="text-align: right;"><%= link_to "全ての商品を見る >", items_path %></p>
     </div>
   </div>
 </div>
