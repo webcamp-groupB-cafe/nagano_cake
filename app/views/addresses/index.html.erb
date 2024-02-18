@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-8">
+      <%= render 'layouts/error', model: @address %>
       <div>配送先登録/一覧</div>
  <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
 　　　<table>
