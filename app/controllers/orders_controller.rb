@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
       @order_details.order_id = order.id
       @order_details.item_id = cart_item.item.id
       @order_details.price = cart_item.item.price
-      @order_details.number = cart_item.amount
+      @order_details.amount = cart_item.amount
       @order_details.status = 0
       @order_details.save!
     end
@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
     # 注文情報詳細
     def show
      @order_details = OrderDetail.where(order_id: params[:id])
-    
+
     @order = current_customer
     end
 
