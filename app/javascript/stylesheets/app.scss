@@ -22,9 +22,10 @@ footer{
 }
 // mainの背景
 main{
-  padding-top: 130px;
+  padding-top: 130px ;
+  padding-bottom: 50px;
   background-color: #fafdff;
-  height: 700px;
+  min-height: 100vh;
 }
 
 
