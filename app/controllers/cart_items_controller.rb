@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
   end
   def create
-    @cart_item = current_customer.cart_items.new(cart_item_params)
+    @cart_item = current_customer.cart_items.new(cart_items_params)
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       cart_item.amount += params[:cart_item][:amount].to_i 

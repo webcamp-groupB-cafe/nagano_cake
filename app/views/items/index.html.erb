@@ -3,8 +3,12 @@
 
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
       <div>
-        <%=  @items.each do |item| %>
-          <%= item_tag item.image(250,300) %>
+        <%  @items.each do |item| %>
+          <% if item.image.attached? %>
+          <%= image_tag item.image, size: "100x100" %>
+          <% else %>
+          <%= image_tag 'no_cake', size: "100x100" %>
+          <% end %>
           <%= link_to item.name, item_path(item.id)  %>
           <p>￥<%= item.with_tax_price.to_i %></p>
         <% end %>
