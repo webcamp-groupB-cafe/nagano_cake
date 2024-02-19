@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.page(params[:page]).per(5)
   end
 
   def show
     @item = Item.find(params[:id])
     @cart_item =CartItem
   end
-  
+
   private
   def item_params
     params.require(:items).permit(:genre_id,:name,:introduction, :nontax_price, :image, :sele_status)
