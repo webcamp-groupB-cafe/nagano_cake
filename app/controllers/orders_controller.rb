@@ -55,8 +55,14 @@ class OrdersController < ApplicationController
     end
     # 注文情報詳細
     def show
+<<<<<<< Updated upstream
     @order_details = OrderDetail.where(order_id: params[:id])
     @order = Order.find(params[:id])
+=======
+     @order_details = OrderDetail.where(order_id: params[:id])
+
+    @order = current_customer
+>>>>>>> Stashed changes
     end
 
     private
