@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="mx-auto">    
+  <div class="mx-auto">
     <h2>注文履歴一覧</h2>
-    
+
     <div class="container">
       <table class="table">
         <thead>
@@ -16,11 +16,11 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-          <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-          <td><%= order.cart_items.sum(:amount) %></td>
+          <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+          <td></td>
           <td>
             <%= form_with model: order, url: admin_order_path(order), method: :patch do |f| %>
-            <%= f.select :order_status, Order.order_statuses, class: "form-control" %>
+            <%= f.select :status, order.status_i18n, class: "form-control" %>
             <!--%= f.submit "更新", class: "btn btn-primary" %>-->
             <% end %>
           </td>

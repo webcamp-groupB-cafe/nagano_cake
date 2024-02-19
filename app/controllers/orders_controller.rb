@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
     def new
     @order = Order.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses
     end
 
-      def create
+    def create
     order = Order.new(order_params)
     order.save
     @cart_items = current_customer.cart_items.all
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
       @order_new = Order.new
       render :confirm
   end
-    
+
 
 
     def thanks
@@ -50,7 +50,8 @@ class OrdersController < ApplicationController
 
     # 注文情報履歴一覧
     def index
-        @orders = Order.all
+@order = current_customer
+@orders = @order.orders
     end
     # 注文情報詳細
     def show
