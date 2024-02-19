@@ -59,4 +59,26 @@ main{
   border: 3px solid #e3acae;
 }
 
+.pagination {
+  justify-content: center;
+}
 
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #FFD5EC;
+    border-color: #007bff;
+    border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+}

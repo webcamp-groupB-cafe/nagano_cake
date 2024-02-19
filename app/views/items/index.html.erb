@@ -5,7 +5,6 @@
     </div>
     <div class="col-md-9">
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
-     
       <div class="card-deck">
         <%  @items.each do |item| %>
           <div class="card shadow-sm cake-box text-center" style="max-width: 230px;">
@@ -29,4 +28,5 @@
       </div>
     </div>
   </div>
+  <%= paginate @items, theme: 'twitter-bootstrap-4' %>
 </div>
