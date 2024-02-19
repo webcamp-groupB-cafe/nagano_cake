@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-     <%= render 'genres_sidebar', genres: @genres %>
+     <%= render 'items/genres_sidebar', genres: @genres %>
     </div>
     <div class="col-md-9">
       <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
      
       <div class="card-deck">
-        <%  @items.each do |item| %>
+        <%  @genre.items.each do |item| %>
           <div class="card shadow-sm cake-box text-center" style="max-width: 230px;">
             <div class="card-img-top" >
             <%= link_to item_path(item.id) do %>
