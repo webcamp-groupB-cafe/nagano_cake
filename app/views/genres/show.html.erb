@@ -8,7 +8,7 @@
      
       <div class="card-deck">
         <%  @genre.items.each do |item| %>
-          <div class="card shadow-sm cake-box text-center" style="max-width: 230px;">
+          <div class="card shadow-sm cake-box text-center" style="min-width: 230px; max-width: 250px;">
             <div class="card-img-top" >
             <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
