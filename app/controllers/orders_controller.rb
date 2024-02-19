@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
     @addresses = Address.all
     end
 
-      def create
+    def create
     order = Order.new(order_params)
     order.save
     @cart_items = current_customer.cart_items.all
