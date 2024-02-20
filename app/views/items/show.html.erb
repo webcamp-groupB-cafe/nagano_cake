@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <%= render 'genres_sidebar', genres: @genres %>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 text-center">
         <% if @item.image.attached? %>
           <%= image_tag @item.image, style: 'width: 80%;' %>
         <% else %>

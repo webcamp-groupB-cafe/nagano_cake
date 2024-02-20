@@ -19,9 +19,9 @@
             <tr>
               <td>
 ﻿               <% if cart_item.item.image.present? %>
-                  <%= image_tag(cart_item.item.image, size: "60x50") %>
+                  <%= image_tag(cart_item.item.image, size: "70x70") %>
                 <% else %>
-                  <%= image_tag("no_cake.png", size: "60x50") %>
+                  <%= image_tag("no_cake.png", size: "70x70") %>
                 <% end %>
                 <%= cart_item.item.name %>
               </td>
