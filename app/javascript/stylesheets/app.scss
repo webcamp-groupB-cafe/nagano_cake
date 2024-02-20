@@ -1,4 +1,13 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+// フォント
+header, main, footer{
+  font-family: "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+}
 // ヘッダー
 .navbar-brand img{
   width: 75px;
@@ -12,6 +21,10 @@
   z-index: 10;
   width: 100%;
   opacity: 95%;
+}
+// ヘッダーのボタン配置
+.nav-link{
+  margin-right: 5px;
 }
 // フッター
 footer{
@@ -37,19 +50,18 @@ main{
 }
 
 .top-box {
-  width: 600px;
-  height: 300px;
-  background-color: gray;
-  // 後で背景画像として挿入し直す
+  width: 720px;
+  height: 350px;
+  background-size: cover;
+  background-image: url('../../assets/images/mv.jpg');
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.top-box2 {
-  width: 400px;
-  height: 150px;
-  background-color: white;
+.top-box p{
+  color: white;
+  font-size: 25px;
 }
 
 // admin 商品一覧ページのnewリンク
@@ -61,6 +73,7 @@ main{
 
 .pagination {
   justify-content: center;
+  margin-top: 15px;
 }
 
 /*ページネーション自体のデザイン*/
@@ -82,6 +95,15 @@ main{
 .pagination>li>a:hover {
   border-radius: 15px;
 }
+// カードのデザイン
 .card{
   margin-top: 15px;
+}
+.card-hover :hover{
+  opacity: 80%;
+  color: #e3acae;
+}
+// thanksページ
+.thanks-text{
+  padding-top: 220px;
 }
