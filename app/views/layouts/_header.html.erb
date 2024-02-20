@@ -50,6 +50,17 @@
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link btn btn-light' %>
           </li>
 
+          <li class="nav-item">
+            <div class="search_form">
+              <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
+                <%= f.text_field :word, class: "form-control" %>
+                <%= f.select :range, options_for_select({ "会員" => "customer", "商品" => "item" }) %>
+                <%= f.hidden_field :search, value: "partial"%>
+                <%= f.submit "Search" %>
+              <% end %>
+            </div>
+          </li>
+
         <% else %>
           <li>
             <%= link_to "About", about_path, class: 'btn btn-light nav-link ' %>

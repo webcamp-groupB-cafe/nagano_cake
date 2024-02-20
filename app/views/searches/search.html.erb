@@ -14,7 +14,7 @@
       <tbody>
         <% @items.each do |item| %>
         <tr>
-          <td><%= item.name %><br>
+          <td><%= link_to item.name, item_path(item.id) %><br>
             <% if item.image.attached? %>
             <%= image_tag item.image, style: 'width: 200px; height: 150px' %>
             <% else %>
@@ -22,7 +22,7 @@
             <% end %>
            </td>
           <td><%= item.introduction %></td>
-          <td><%= item.with_tax_price.to_s(:delimited) %></td>
+          <td><%= item.with_tax_price.to_s(:delimited) %>円</td>
           <td><%= item.genre ?  item.genre.name : 'ジャンルが設定されていません' %></td>
         </tr>
       </tbody>
