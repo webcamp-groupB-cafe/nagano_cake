@@ -30,12 +30,16 @@
               </h5>
             <% end %>
             <div class="card-text">
-              <p>￥<%= item.with_tax_price.to_i %></p>
+              <% if item.is_active == true %>
+                <p>￥<%= item.with_tax_price.to_i %></p>
+              <% else %>
+                <p class="text-muted">販売停止中</p>
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
-      <p style="text-align: right;"><%= link_to "全ての商品を見る >", items_path %></p>
+      <p class="see-all", style="text-align: right;"><%= link_to "全ての商品を見る >", items_path %></p>
     </div>
   </div>
 </div>

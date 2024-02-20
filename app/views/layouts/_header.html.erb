@@ -7,7 +7,7 @@
         <ul class="navbar-nav ml-auto">
 
         <% if customer_signed_in? %>
-         <div class="row mx-auto">ようこそ、<%= current_customer.last_name %>さん！</div>
+         <div class="row mx-auto text-light">ようこそ、<%= current_customer.last_name %>さん！</div>
           <li>
             <%= link_to "マイページ", customers_my_page_path, class: 'btn btn-light nav-link' %>
           </li>
