@@ -13,4 +13,12 @@ class Item < ApplicationRecord
       image.attached(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
   end
+
+  #部分一致検索
+  def self.looks(search, word)
+    if search == "partial"
+      @item = Item.where("name LIKE?","%#{word}%")
+    end
+  end
+
 end
