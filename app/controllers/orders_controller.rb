@@ -1,6 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_customer!
-  
     def new
     @order = Order.new
     @addresses = current_customer.addresses
@@ -59,7 +57,6 @@ class OrdersController < ApplicationController
     def show
     @order_details = OrderDetail.where(order_id: params[:id])
     @order = Order.find(params[:id])
-    @order = current_customer
     end
 
     private
