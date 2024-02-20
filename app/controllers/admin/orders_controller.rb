@@ -15,6 +15,17 @@ def update
 
 end
 
+def update_order_detail_status
+  @order_detail = OrderDetail.find(params[:id])
+  if @order_detail.update(order_detail_params)
+    # ステータスの変更が成功した場合の処理を記述します
+    redirect_to admin_order_path
+  else
+    # ステータスの変更が失敗した場合の処理を記述します
+    redirect_to admin_order_path
+  end
+end
+
 private
 
 def order_params
