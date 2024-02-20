@@ -1,8 +1,10 @@
 
 <div class="container">
-  <h2>注文履歴一覧</h2>
-  <table class="table table-bordered">
-  <tr>
+  <h3>会員一覧</h3>
+  <div class="row-3">
+    <div class="customers-table">
+      <table class="table">
+  <tr class="table-active">
     <td>購入日時</td>
     <td>購入者</td>
     <td>注文個数</td>
@@ -21,4 +23,7 @@
       </tr>
     <% end %>
 </table>
+    </div>
+  </div>
+  <%= paginate @customers, theme: 'twitter-bootstrap-4' %>
 </div>
