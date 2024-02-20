@@ -6,7 +6,7 @@
 }
 // フォント
 header, main, footer{
-  font-family: "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 // ヘッダー
 .navbar-brand img{
@@ -33,6 +33,11 @@ footer{
   background-color: #e3acae;
   opacity: 95%;
 }
+footer p{
+  color: white;
+  padding-top: 35px;
+  font-family: Lato, sans-serif;
+}
 // mainの背景
 main{
   padding-top: 130px ;
@@ -41,29 +46,31 @@ main{
   min-height: 100vh;
 }
 
-
+// top画面
 .about-box {
   width: 450px;
   height: 200px;
   background-color: grey;
-
 }
-
 .top-box {
-  width: 720px;
+  width: 825px;
   height: 350px;
   background-size: cover;
   background-image: url('../../assets/images/mv.jpg');
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
-
 .top-box p{
   color: white;
   font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: 'Shippori Mincho', serif;
 }
-
+.see-all{
+  margin-top: 15px;
+}
 // admin 商品一覧ページのnewリンク
 .new-item{
   border-radius: 100px;
@@ -107,3 +114,4 @@ main{
 .thanks-text{
   padding-top: 220px;
 }
+// ジャンルサイドバー

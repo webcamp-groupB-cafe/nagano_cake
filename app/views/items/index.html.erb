@@ -20,7 +20,11 @@
                 <%= item.name %>
               </h5>
             <div class="card-text card-color">
-              <p>￥<%= item.with_tax_price.to_i %></p>
+              <% if item.is_active == true %>
+                <p>￥<%= item.with_tax_price.to_i %></p>
+              <% else %>
+                <p class="text-danger">販売停止中</p>
+              <% end %>
             </div>
             <% end %>
           </div>
