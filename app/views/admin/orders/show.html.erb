@@ -1,32 +1,92 @@
 <div class="container">
-    <div class="mx-auto">
-      <h1>注文履歴詳細</h1>
-     <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-      <table class="table">
-        <tr>
-          <td>購入者</td>
-          <!--URLをしらべて入れる-->
-          <td><%= link_to @order.first_name+"  "+@customer.last_name  %></td>
-        </tr>
-        <tr>
-          <td>注文日</td>
-          <td><%= l @order.created_at %></td>
-        </tr>
-      <tr>
-        <td>配送先</td>
-        <td><%= @order.postal_code%><%= @order.address %><%= @order.name %></td>
-      </tr>
-      <tr>
-       <td>支払い方法</td>
-       <td><%= @order.payment_method_i18n%></td>
-      </tr>
-      <tr>
-       <td>注文ステータス</td>
-       <td>
+  <h2>注文履歴詳細</h2>
 
-       </td>
-      </tr>
-    </table>
-    <% end %>
-  </div>
+<%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
+  <table class="table table-bordered">
+    <tr>
+      <td>購入者</td>
+      <td><%= @order.customer.first_name %><%= @order.customer.last_name %></td>
+    </tr>
+    <tr>
+      <td>注文日</td>
+      <td><%= l @order.created_at %></td>
+    </tr>
+    <tr>
+      <td>配送先</td>
+      <td><%= @order.postal_code%><%= @order.address %><%= @order.name %></td>
+    </tr>
+    <tr>
+      <td>支払い方法</td>
+      <td><%= @order.payment_method_i18n%></td>
+    </tr>
+    <tr>
+      <td>注文ステータス</td>
+      <td>
+        <%= f.select :status, Order.statuses_i18n.invert %>
+        <%= f.submit "更新", class: "btn btn-success" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+
+
+
+<div class="row">
+<table class="table table-bordered col-7">
+  <thead>
+  <tr>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>製作ステータス</th>
+  </tr>
+  </thead>
+<% @order_details.each do |order_detail| %>
+
+<% @sum = 0 %>
+<% @sum += order_detail.item.with_tax_price %>
+<% @total = 0 %>
+<% @total += order_detail.item.with_tax_price * order_detail.amount %>
+<%= form_with model: order_detail , url: admin_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
+    <tbody>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.item.with_tax_price %></td>
+          <td><%= order_detail.amount %></td>
+          <td><%= @sum*order_detail.amount %>円</td>
+          <td>
+            <%= f.select :making_status, OrderDetail.manufacture_statuses_i18n.invert %>
+            <%= f.submit "更新", class: "btn btn-success" %>
+          </td>
+        </tr>
+        </tbody>
+      <% end %>
+
+      <% @total_price = 0 %>
+       <% @order_details.each do |order_detail| %>
+        <% sub_total = order_detail.item.with_tax_price * order_detail.amount %>
+         <% @total_price += sub_total %>
+      <% end %>
+
+      <% end %>
+</table>
+
+<table class ="col-2 mx-auto">
+  <tr>
+    <td>商品合計</td>
+    <td><%= @total_price %></td>
+  </tr>
+  <tr>
+    <td>送料</td>
+    <td>800円</td>
+  </tr>
+  <tr>
+    <td>請求額合計</td>
+    <td><%= @total_price + 800 %>円</td>
+  </tr>
+
+</table>
+</div>
 </div>
