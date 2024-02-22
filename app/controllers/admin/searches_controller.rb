@@ -6,9 +6,11 @@ class Admin::SearchesController < ApplicationController
     @range = params[:range]
 
 
-    if @range == "商品"
-      @items = Item.looks(@search, @word).page(params[:page]).per(6)
+    if @range == "Item"
+      @items = Item.looks(@search, @word)
       @genres = Genre.all
+    else
+      @customers = Customer.looks(@search, @word)
     end
   end
 end

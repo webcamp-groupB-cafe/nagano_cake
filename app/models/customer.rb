@@ -14,4 +14,12 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (is_active == true)
   end
+
+  #部分一致検索
+  def self.looks(search, word)
+    if search == "partial"
+      @customer = Customer.where("first_name LIKE?","%#{word}%")
+    end
+  end
+
 end
