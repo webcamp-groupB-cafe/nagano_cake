@@ -57,7 +57,7 @@
           <td><%= order_detail.amount %></td>
           <td><%= @sum*order_detail.amount %>円</td>
           <td>
-            <%= f.select :making_status, OrderDetail.manufacture_statuses_i18n.invert %>
+            <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
             <%= f.submit "更新", class: "btn btn-success" %>
           </td>
         </tr>
