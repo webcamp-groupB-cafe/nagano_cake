@@ -5,22 +5,32 @@
   color: #6c6b6b;
 }
 // フォント
-header, main, footer{
-  font-family: 'Noto Serif JP', sans-serif;
-}
+
 // ヘッダー
 .navbar-brand img{
   width: 75px;
   height: 75px;
 }
 
-.navbar {
+header {
+  height: 15vh;
   background-color: #e3acae;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   z-index: 10;
   width: 100%;
   opacity: 95%;
+}
+.sticky{
+  position: fixed;
+  top: 0;
+}
+.top-image{
+  width: 100%;
+  height: 85vh;
+  objevt-fit: cover;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
 // ヘッダーのボタン配置
 .nav-link{
@@ -40,7 +50,7 @@ footer p{
 }
 // mainの背景
 main{
-  padding-top: 130px ;
+  margin-top: 130px ;
   padding-bottom: 50px;
   background-color: #fafdff;
   min-height: 100vh;
