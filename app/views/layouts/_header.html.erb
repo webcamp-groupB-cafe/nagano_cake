@@ -1,7 +1,9 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand"><img src="/assets/naganocake.jpg" ></a>
+      <%= link_to root_path do %>
+      <div class="navbar-brand"><img src="/assets/naganocake.jpg" ></div>
+      <% end %>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
@@ -24,7 +26,7 @@
           <li class="nav-item">
             <div class="search_form">
               <%= form_with url: search_path, local: true, method: :get do |f| %>
-                <%= f.text_field :word, class: "form-control" %>
+                <%= f.text_field :word, placeholder:"商品名", class: "form-control" %>
                 <%= f.hidden_field :range, value: "商品"%>
                 <%= f.hidden_field :search, value: "partial"%>
                 <%= f.submit "Search" %>
@@ -53,8 +55,8 @@
           <li class="nav-item">
             <div class="search_form">
               <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
-                <%= f.text_field :word, class: "form-control" %>
-                <%= f.select :range, options_for_select({ "会員" => "customer", "商品" => "item" }) %>
+                <%= f.text_field :word, placeholder:"商品名", class: "form-control" %>
+                <%= f.hidden_field :range, value: "商品"%>
                 <%= f.hidden_field :search, value: "partial"%>
                 <%= f.submit "Search" %>
               <% end %>

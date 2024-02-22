@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     @range = params[:range]
 
     if @range == "商品"
-      @items = Item.looks(@search, @word)
+      @items = Item.looks(@search, @word).page(params[:page]).per(6)
       @genres = Genre.all
     end
   end
