@@ -50,8 +50,8 @@ class OrdersController < ApplicationController
 
     # 注文情報履歴一覧
     def index
-@order = current_customer
-@orders = @order.orders
+     @order = current_customer
+     @orders = @order.orders
     end
     # 注文情報詳細
     def show
