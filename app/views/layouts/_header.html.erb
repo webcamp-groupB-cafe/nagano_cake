@@ -55,8 +55,8 @@
           <li class="nav-item">
             <div class="search_form">
               <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
-                <%= f.text_field :word, placeholder:"商品名", class: "form-control" %>
-                <%= f.hidden_field :range, value: "商品"%>
+                <%= f.text_field :word, class: "form-control" %>
+                <%= f.select :range, options_for_select([['Item'], ['Customer']]) %>
                 <%= f.hidden_field :search, value: "partial"%>
                 <%= f.submit "Search" %>
               <% end %>

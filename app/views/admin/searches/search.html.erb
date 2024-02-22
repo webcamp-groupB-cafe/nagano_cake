@@ -36,9 +36,36 @@
       </tbody>
         <% end %>
     </table>
+    <% elsif @customers.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>会員ID</td>
+          <td>氏名</td>
+          <td>メールアドレス</td>
+          <td>ステータス</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.first_name + customer.last_name, admin_customer_path(customer.id) %></td>
+          <td><%= customer.email %></td>
+          <td>
+          <% if customer.is_active == true %>
+            <p class="text-success"><strong>有効</strong></p>
+          <% else %>
+            <p class="text-muted"><strong>退会</strong></p>
+          <% end %>
+          </td>
+        </tr>
+      </tbody>
+        <% end %>
+    </table>
     <% else %>
-    <p>商品が見つかりませんでした</p>
+    <p>結果が見つかりませんでした</p>
     <% end %>
   </div>
-  <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
 </div>
