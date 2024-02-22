@@ -26,6 +26,7 @@ class CartItemsController < ApplicationController
   end
   
   def destroy
+    @cart_items = current_customer.cart_items.all
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
     render 'index'
