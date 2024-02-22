@@ -1,8 +1,8 @@
 class OrderDetail < ApplicationRecord
   belongs_to :item
   belongs_to :order
-  
-  enum manufacture_status:
+
+  enum making_status:
         {
           impossible_manufacture:0,
           waiting_manufacture:1,
