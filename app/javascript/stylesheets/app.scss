@@ -16,7 +16,7 @@ header {
   height: 15vh;
   background-color: #e3acae;
   position: absolute;
-  bottom: 0;
+  top: 0;
   z-index: 10;
   width: 100%;
   opacity: 95%;
@@ -35,7 +35,9 @@ header {
 // ヘッダーのボタン配置
 .nav-link{
   margin-right: 5px;
+  border-raddius: 50%
 }
+
 // フッター
 footer{
   width: 100%;
@@ -124,4 +126,3 @@ main{
 .thanks-text{
   padding-top: 220px;
 }
-// ジャンルサイドバー

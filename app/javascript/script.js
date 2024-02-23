@@ -22,3 +22,4 @@ $(document).on('turbolinks:load', function(){
         $window.trigger('scroll');
     });
 });
+
