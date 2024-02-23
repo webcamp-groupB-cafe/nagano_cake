@@ -13,27 +13,27 @@
           <li>
             <%= link_to customers_my_page_path, class: 'btn btn-outline-light nav-link rounded-pill' do %>
             <i class="fa-solid fa-user text-light"></i> My page
-            <% end %>          
+            <% end %>
           </li>
           <li>
             <%= link_to items_path, class: 'btn btn-outline-light nav-link rounded-pill' do %>
             <i class="fa-solid fa-cheese text-light"></i> Items
-            <% end %> 
+            <% end %>
           </li>
           <li>
             <%=  link_to cart_items_path, class: 'btn btn-outline-light nav-link rounded-pill' do %>
             <i class="fa-solid fa-cart-shopping text-light"></i> Cart
-            <% end %> 
+            <% end %>
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-light rounded-pill' do %>
             <i class="fa-solid fa-right-from-bracket text-light"></i> Log out
-            <% end %> 
+            <% end %>
           </li>
-          
+
           <li class="nav-item">
             <div class="search-form">
-              <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <%= form_with url: search_path, local: true, method: :get, class: "d-flex" do |f| %>
                 <%= f.text_field :word, placeholder:"商品名", class: "form-control" %>
                 <%= f.hidden_field :range, value: "商品"%>
                 <%= f.hidden_field :search, value: "partial"%>
@@ -63,7 +63,7 @@
 
           <li class="nav-item">
             <div class="search_form">
-              <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
+              <%= form_with url: admin_search_path, local: true, method: :get, class: "d-flex" do |f| %>
                 <%= f.text_field :word, class: "form-control" %>
                 <%= f.select :range, options_for_select([['Item'], ['Customer']]) %>
                 <%= f.hidden_field :search, value: "partial"%>

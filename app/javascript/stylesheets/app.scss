@@ -90,8 +90,8 @@ body {
 // admin 商品一覧ページのnewリンク
 .new-item{
   border-radius: 100px;
-  color: #e3acae;
-  border: 3px solid #e3acae;
+  color: #5a4d43;
+  border: 3px solid #5a4d43;
 }
 
 .pagination {
@@ -103,13 +103,14 @@ body {
 .pagination>li>a {
   border: none;
   color: #696969;
+  background-color: #f5f1ee;
 }
 
 /* 表示しているページ番号のデザイン */
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #FFD5EC;
+    background-color: #5d5959;
     border-color: #007bff;
     border-radius: 15px;
 }
@@ -144,21 +145,10 @@ body {
   --swiper-pagination-color: #ffffff;
 }
 
-h2 {
+h2, h1, h4, h3 {
   font-family: 'Sawarabi Mincho', sans-serif;
 }
 
-h1 {
-  font-family: 'Sawarabi Mincho', sans-serif;
-}
-
-h4 {
-  font-family: 'Sawarabi Mincho', sans-serif;
-}
-
-h3 {
-  font-family: 'Sawarabi Mincho', sans-serif;
-}
 .swiper-slide img {
   height: 350px;
   width: 600px;
