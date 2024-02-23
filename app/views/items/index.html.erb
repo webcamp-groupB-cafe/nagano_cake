@@ -4,7 +4,7 @@
      <%= render 'genres_sidebar', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <h2>Product List</h2><p>(全<%= @items.count %>件)</p>
+      <h2 class="text-center">Item List</h2><p class="text-center">(全<%= @items.count %>件)</p>
       <div class="card-deck">
         <%  @items.each do |item| %>
           <%= link_to item_path(item.id), class: "card-hover" do %>
@@ -30,7 +30,8 @@
           </div>
         <% end %>
       </div>
+      <%= paginate @items, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>
-  <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+  
 </div>
