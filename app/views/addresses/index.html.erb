@@ -3,23 +3,23 @@
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <%= render 'layouts/error', model: @address %>
-      <div>配送先登録/一覧</div>
+      <h2>配送先登録/一覧</h2>
  <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
 　　　<table>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
-          <td><%= f.text_field :postal_code, class:"form-control"  %></td>
+          <td><%= f.text_field :postal_code, class:"form-control mx-4"  %></td>
           <td></td>
         </tr>
         <tr>
           <td>住所</td>
-          <td><%= f.text_field :adress, class:"form-control" %></td>
+          <td><%= f.text_field :adress, class:"form-control mx-4" %></td>
           <td></td>
         </tr>
         <tr>
           <td>宛名</td>
-          <td><%= f.text_field :name, class:"form-control"  %></td>
-          <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
+          <td><%= f.text_field :name, class:"form-control mx-4"  %></td>
+          <td><%= f.submit "新規登録", class:"btn btn-outline-success rounded-pill mx-5" %></td>
         </tr>
         </table>
         <% end %>
@@ -43,7 +43,8 @@
             <td><%= address.adress %></td>
             <td><%= address.name %></td>
             <td>
-                <%= link_to "編集する", edit_address_path(address),method: :get , class: "btn btn-primary" %>　　<%= link_to "削除する", address_path(address), method: :delete , class: "btn btn-danger" %>
+                <%= link_to "編集する", edit_address_path(address),method: :get, class: 'btn btn-outline-success rounded-pill mx-4' %>
+                <%= link_to "削除する", address_path(address), method: :delete , class: "btn btn-outline-danger rounded-pill" %>
             </td>
           </tr>
         </tbody>

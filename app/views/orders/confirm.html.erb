@@ -60,6 +60,6 @@
     <%= f.hidden_field :address, value: @order.address%>
     <%= f.hidden_field :name, value: @order.name %>
     <%= f.hidden_field :status, value: "wait_payment" %>
-    <%= f.submit "注文を確定する" %>
+    <%= f.submit "注文を確定する", class: "btn btn-outline-secondary rounded-pill" %>
   <% end %>
 </div>

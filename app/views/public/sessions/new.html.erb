@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
     <div class="mx-auto">
-<h4>Log in</h4>
+<h2>Log in</h2>
 <p>会員の方はこちらからログイン</p>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
@@ -24,7 +24,7 @@
 
 <tr>
  <td class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill" %>
  </td>
 </tr>
 
