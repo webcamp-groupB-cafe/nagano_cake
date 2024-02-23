@@ -27,14 +27,15 @@ $(document).on('turbolinks:load', function(){
 
 // Swiperのオプションを定数化
 const opt = {
-  loop: true, 
-  pagination: { 
-    el: '.swiper-pagination', 
-  },
-  navigation: { 
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
+        loop: true,
+        autoplay: {
+            delay: 0,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+        }, 
+        speed: 2000,
+        slidesPerView: 2,
+    
 }
 
 // Swiperを実行(初期化)
