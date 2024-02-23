@@ -56,12 +56,7 @@ main{
   min-height: 100vh;
 }
 
-// top画面
-.about-box {
-  width: 450px;
-  height: 200px;
-  background-color: grey;
-}
+
 .top-box {
   width: 825px;
   height: 350px;
@@ -125,3 +120,14 @@ main{
   padding-top: 220px;
 }
 // ジャンルサイドバー
+
+
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+:root {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+}
