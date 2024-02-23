@@ -3,23 +3,23 @@
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <%= render 'layouts/error', model: @address %>
-      <div>配送先編集</div>
+      <h2>配送先編集</h2>
  <%= form_with model: @address, url: address_path(@address), method: :patch do |f| %>
 　　　<table>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
-          <td><%= f.text_field :postal_code, class:"form-control"  %></td>
+          <td><%= f.text_field :postal_code, class:"form-control mx-4"  %></td>
           <td></td>
         </tr>
         <tr>
           <td>住所</td>
-          <td><%= f.text_field :adress, class:"form-control" %></td>
+          <td><%= f.text_field :adress, class:"form-control mx-4" %></td>
           <td></td>
         </tr>
         <tr>
           <td>宛名</td>
-          <td><%= f.text_field :name, class:"form-control"  %></td>
-          <td><%= f.submit "変更内容を保存", class:"btn btn-primary" %></td>
+          <td><%= f.text_field :name, class:"form-control mx-4"  %></td>
+          <td><%= f.submit "変更内容を保存", class:"btn btn-outline-success rounded-pill mx-5" %></td>
         </tr>
         </table>
         <% end %>

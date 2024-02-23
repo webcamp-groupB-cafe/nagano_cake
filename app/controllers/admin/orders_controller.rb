@@ -9,7 +9,7 @@ def index
 
    if params[:id]
      @customer = Customer.find(params[:id])
-     @orders = @customer.orders
+     @orders = @customer.orders.page(params[:page]).per(6)
    else
      @orders = Order.all
    end
