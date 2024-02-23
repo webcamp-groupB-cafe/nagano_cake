@@ -27,15 +27,14 @@ $(document).on('turbolinks:load', function(){
 
 // Swiperのオプションを定数化
 const opt = {
-        loop: true,
-        autoplay: {
-            delay: 0,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-        }, 
-        speed: 2000,
-        slidesPerView: 2,
-    
+ loop: true, // ループ有効
+  slidesPerView: 2, // 一度に表示する枚数
+  speed: 6000, // ループの時間
+  allowTouchMove: false, // スワイプ無効
+  autoplay: {
+    delay: 0, // 途切れなくループ
+    reverseDirection: true, // 逆方向有効化
+  },
 }
 
 // Swiperを実行(初期化)
