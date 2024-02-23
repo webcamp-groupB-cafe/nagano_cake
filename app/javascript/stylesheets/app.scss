@@ -20,7 +20,7 @@ header {
   z-index: 10;
   width: 100%;
   opacity: 95%;
-  font-family: cursive;
+  font-family: 'Sawarabi Mincho', sans-serif;
 }
 .sticky{
   position: fixed;
@@ -125,7 +125,6 @@ body {
 }
 .card-hover :hover{
   opacity: 80%;
-  color: #e3acae;
 }
 // thanksページ
 .thanks-text{
@@ -157,4 +156,16 @@ h2, h1, h4, h3 {
 .btn-outline-light {
   background-color: #5a4d43;
 color: #ffffff;
+}
+
+h1, h2{
+  padding-bottom: 5px;
+  border-bottom: solid 4px #cdbca4;
+}
+.genre-table{
+  background-color: #cdbca4;
+
+}
+.ec-genre-list-item{
+  color: #f5f1ee;
 }
