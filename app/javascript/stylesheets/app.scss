@@ -8,8 +8,8 @@
 
 // ヘッダー
 .navbar-brand img{
-  width: 75px;
-  height: 75px;
+  width: 220px;
+  height: 85px;
 }
 
 header {
@@ -37,19 +37,23 @@ header {
   margin-right: 5px;
   border-raddius: 50%
 }
-
+// 検索窓
+.search-form{
+  display: flex;
+}
 // フッター
 footer{
   width: 100%;
-  height:80px;
+  height: 80px;
   background-color: #5a4d43;
   opacity: 95%;
 }
 footer p{
   color: white;
-  padding-top: 35px;
+  padding-top: 15px;
   font-family: cursive;
 }
+
 // mainの背景
 main{
   margin-top: 130px ;
