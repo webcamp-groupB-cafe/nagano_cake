@@ -1,0 +1,170 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+// フォント
+
+// ヘッダー
+.navbar-brand img{
+  width: 220px;
+  height: 85px;
+}
+
+header {
+  height: 15vh;
+  background-color: #5a4d43;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  opacity: 95%;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+.sticky{
+  position: fixed;
+  top: 0;
+}
+.top-image{
+  width: 100%;
+  height: 85vh;
+  objevt-fit: cover;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+// ヘッダーのボタン配置
+.nav-link{
+  margin-right: 5px;
+}
+// 検索窓
+.search-form{
+  display: flex;
+}
+// フッター
+footer{
+  width: 100%;
+  height: 80px;
+  background-color: #5a4d43;
+  opacity: 95%;
+}
+footer p{
+  color: white;
+  padding-top: 15px;
+  font-family: cursive;
+}
+
+// mainの背景
+main{
+  margin-top: 130px ;
+  padding-bottom: 50px;
+  min-height: 100vh;
+}
+
+//ページ全体の背景色
+body {
+  background-color: #f5f1ee;
+}
+
+
+.top-box {
+  width: 825px;
+  height: 350px;
+  background-size: cover;
+  background-image: url('../../assets/images/mv.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.top-box p{
+  color: white;
+  font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: 'Shippori Mincho', serif;
+}
+.see-all{
+  margin-top: 15px;
+}
+// admin 商品一覧ページのnewリンク
+.new-item{
+  border-radius: 100px;
+  color: #5a4d43;
+  border: 3px solid #5a4d43;
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;
+  color: #696969;
+  background-color: #f5f1ee;
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #5d5959;
+    border-color: #007bff;
+    border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+// カードのデザイン
+.card{
+  margin-top: 15px;
+}
+.card-hover :hover{
+  opacity: 80%;
+}
+// thanksページ
+.thanks-text{
+  padding-top: 220px;
+}
+
+// ジャンルサイドバー
+
+
+.swiper {
+  width: 1000px;
+  height: 350px;
+}
+
+:root {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+}
+
+h2, h1, h4, h3 {
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.swiper-slide img {
+  height: 350px;
+  width: 600px;
+}
+
+.btn-outline-link {
+  background-color: #5a4d43;
+
+}
+
+h1, h2{
+  padding-bottom: 5px;
+  border-bottom: solid 4px #cdbca4;
+}
+.genre-table{
+  background-color: #cdbca4;
+
+}
+.ec-genre-list-item{
+  color: #f5f1ee;
+}

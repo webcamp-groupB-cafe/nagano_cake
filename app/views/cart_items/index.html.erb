@@ -1,2 +1,66 @@
-<h1>CartItems#index</h1>
-<p>Find me in app/views/cart_items/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+
+      <h3>Shopping Cart</h3>
+      <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete,class: "btn btn-outline-danger rounded-pill mx-4" %>
+        <table class="table table-bordered">
+          <tr class="table-active">
+           <th>商品名</th>
+           <th>単価(税込)</th>
+           <th>数量</th>
+           <th>小計</th>
+           <th></th>
+          </tr>
+
+          <% total = 0 %>
+          <% if current_customer.cart_items.present? %>
+            <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+﻿               <% if cart_item.item.image.present? %>
+                  <%= image_tag(cart_item.item.image, size: "70x70") %>
+                <% else %>
+                  <%= image_tag("no_cake.png", size: "70x70") %>
+                <% end %>
+                <%= cart_item.item.name %>
+              </td>
+              <td><%= cart_item.with_tax_price.to_i %></td>
+              <td>
+                <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch do |f| %>
+                  <%= f.number_field :amount, min: 1, max:10, id: "amount_cart"%>
+                  <%= f.submit "変更",class: "btn btn-outline-success rounded-pill" %>
+                <% end %>
+              </td>
+              <td>
+                <%= cart_item.subtotal %>
+              </td>
+              <td>
+                <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-outline-danger rounded-pill" %>
+              </td>
+            </tr>
+
+              <% total += cart_item.subtotal %>
+            <% end %>
+          <% end %>
+      </table>
+      </div>
+
+         <%= link_to "買い物を続ける", items_path, class: "btn btn-outline-secondary rounded-pill mb-2" %>
+        <div class="row col-2">
+        <table class="table table-bordered total-table">
+          <tr>
+           <th class="table-active">合計金額</th>
+           <td>
+           <%= total %></td>
+          </tr>
+        </table>
+        </div>
+        <div class="w-100"></div>
+        <div class="row justify-content-md-center">
+          <% if @cart_items.present? %>
+            <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-success rounded-pill" %>
+          <% end %>
+        </div>
+
+</div>

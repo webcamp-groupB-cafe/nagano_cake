@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+     <%= render 'items/genres_sidebar', genres: @genres %>
+    </div>
+    <div class="col-md-9">
+      <h2 class="text-center">Item List</h2><p class="text-center">(全<%= @items.count %>件)</p>
+
+      <div class="card-deck">
+        <%  @genre.items.each do |item| %>
+        <%= link_to item_path(item.id), class: "card-hover" do %>
+          <div class="card shadow-sm cake-box text-center" style="min-width: 230px; max-width: 250px;">
+            <div class="card-img-top" >
+              <% if item.image.attached? %>
+                <%= image_tag item.image, style: 'width: 100%; height: 180px' %>
+              <% else %>
+                <%= image_tag 'no_cake', style: 'width: 100%; height: 180px' %>
+              <% end %><br>
+              </div>
+              <h5 class="card-title pt-2">
+                <%= item.name %>
+              </h5>
+            <div class="card-text">
+              <p>￥<%= item.with_tax_price.to_i %></p>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+        <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+      </div>
+    </div>
+  </div>
+</div>

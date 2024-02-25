@@ -1,2 +1,35 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container">
+    <h3>Product List<%= link_to "new", new_admin_item_path, class: "new-item btn offset-sm-9" %></h3>
+
+  <div class="row">
+      <table class="table">
+        <thead>
+          <tr class="table-active">
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item) %></td>
+            <td><%= item.price %>円</td>
+            <td><%= item.genre.name %></td>
+            <td>
+              <% if item.is_active %>
+                <p class="text-success"><strong>販売中</strong></p>
+              <% else %>
+                <p class="text-muted"><strong>販売停止中</strong></p>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+          <% end %>
+      </table>
+    </div>
+    <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+</div>

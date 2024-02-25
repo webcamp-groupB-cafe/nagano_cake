@@ -1,2 +1,37 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+  <div class="row">  
+    <div class="col-md-3">
+      <%= render 'genres_sidebar', genres: @genres %>
+    </div>
+    <div class="col-md-5 text-center">
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, style: 'width: 80%;' %>
+        <% else %>
+          <%= image_tag 'no_cake', style: 'width: 80%;' %>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <p class="my-4"><h3 class="text-center"><%= @item.name %></h3></p>
+      <p class="my-4 text-center"><%= @item.introduction %></p>
+      <% if @item.is_active == true %>
+        <p class="my-4 text-center">￥<%= @item.with_tax_price.to_i %>(税込)</p>
+      <% else %>
+        <p class="my-4 text-center text-danger">販売停止中</p>
+      <% end %>
+      
+      <div class="my-4 text-center">
+          <% if customer_signed_in? %>
+            <% if @item.is_active == true %>
+              <%= form_with(model: @cart_item, url: cart_items_path, method: :post, local: true) do |f| %>
+                <%= f.label :amount, "個数選択" %>
+                <%= f.select :amount, (1..10) %>
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.submit "カートに入れる" %>
+              <% end %>
+            <% end %>
+          <% end %>
+      </div>   
+    </div>
+  </div>
+</div>
+

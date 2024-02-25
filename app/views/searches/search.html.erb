@@ -1,0 +1,36 @@
+<div class="container">
+  <h3>検索結果一覧</h3>
+  <div class="row">
+    <% if @items.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+            <th>商品名</th>
+            <th>商品説明</th>
+            <th>税込価格</th>
+            <th>ジャンル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= link_to item.name, item_path(item.id) %><br>
+            <% if item.image.attached? %>
+            <%= image_tag item.image, style: 'width: 200px; height: 150px' %>
+            <% else %>
+            <%= image_tag 'no_cake', style: 'width: 200px; height: 150px' %>
+            <% end %>
+           </td>
+          <td><%= item.introduction %></td>
+          <td><%= item.with_tax_price.to_s(:delimited) %>円</td>
+          <td><%= item.genre ?  item.genre.name : 'ジャンルが設定されていません' %></td>
+        </tr>
+      </tbody>
+        <% end %>
+    </table>
+    <% else %>
+    <p>商品が見つかりませんでした</p>
+    <% end %>
+  </div>
+  <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+</div>

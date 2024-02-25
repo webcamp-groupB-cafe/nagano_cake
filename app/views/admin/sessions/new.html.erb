@@ -1,0 +1,35 @@
+
+<div class="container">
+    <div class="row">
+    <div class="mx-auto">
+<%= form_with model: @admin, url: admin_session_path do |f| %>
+  <%= render "admin/shared/error_messages", resource: resource %>
+<h2>Admin Login</h2>
+<table>
+
+  <tr>
+  <td class="field">
+    <%= f.label :メールアドレス, class: "mr-3" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="field">
+    <%= f.label :パスワード, class: "mr-5" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </td>
+</tr>
+
+<tr>
+ <td class="actions">
+    <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill" %>
+ </td>
+</tr>
+
+</table>
+<% end %>
+
+</div>
+</div>
+</div>
