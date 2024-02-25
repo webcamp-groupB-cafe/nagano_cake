@@ -10,21 +10,21 @@
 
   <tr>
   <td class="field">
-    <%= f.label :メールアドレス %>
+    <%= f.label :メールアドレス, class: "mr-3" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </td>
  </tr>
 
  <tr>
   <td class="field">
-    <%= f.label :パスワード %>
+    <%= f.label :パスワード, class: "mr-5" %>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </td>
 </tr>
 
 <tr>
  <td class="actions">
-    <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill" %>
+    <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill mb-2" %>
  </td>
 </tr>
 

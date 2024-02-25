@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
 
-      <h4>Shopping Cart</h4>
+      <h3>Shopping Cart</h3>
       <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete,class: "btn btn-outline-danger rounded-pill mx-4" %>
         <table class="table table-bordered">
           <tr class="table-active">
@@ -46,7 +46,7 @@
       </table>
       </div>
 
-         <%= link_to "買い物を続ける", items_path, class: "btn btn-outline-secondary rounded-pill" %>
+         <%= link_to "買い物を続ける", items_path, class: "btn btn-outline-secondary rounded-pill mb-2" %>
         <div class="row col-2">
         <table class="table table-bordered total-table">
           <tr>
