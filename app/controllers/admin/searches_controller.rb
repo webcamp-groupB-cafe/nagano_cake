@@ -5,7 +5,7 @@ class Admin::SearchesController < ApplicationController
     @search = params[:search]
     @range = params[:range]
 
-
+#検索
     if @range == "Item"
       @items = Item.looks(@search, @word)
       @genres = Genre.all
