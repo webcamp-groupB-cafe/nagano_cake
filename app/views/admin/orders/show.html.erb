@@ -23,7 +23,7 @@
       <td>注文ステータス</td>
       <td>
         <%= f.select :status, Order.statuses_i18n.invert %>
-        <%= f.submit "更新", class: "btn btn-success" %>
+        <%= f.submit "更新", class: "btn btn-outline-success rounded-pill mx-4" %>
       </td>
     </tr>
   </table>
@@ -33,9 +33,9 @@
 
 
 <div class="row">
-<table class="table table-bordered col-7">
+     <table class="table table-bordered col-7">
   <thead>
-  <tr>
+  <tr class="table-active">
     <th>商品名</th>
     <th>単価(税込)</th>
     <th>数量</th>
@@ -58,7 +58,7 @@
           <td><%= @sum*order_detail.amount %>円</td>
           <td>
             <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
-            <%= f.submit "更新", class: "btn btn-success" %>
+            <%= f.submit "更新", class: "btn btn-outline-success rounded-pill mx-4" %>
           </td>
         </tr>
         </tbody>

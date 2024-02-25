@@ -1,5 +1,4 @@
-let title = "javascript使用中。ファイルはapp/javascript/script.jsです。";
-alert(title);
+
 
 $(document).on('turbolinks:load', function(){
     $('header').each(function(){

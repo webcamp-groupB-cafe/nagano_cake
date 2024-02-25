@@ -18,7 +18,8 @@ class Customer < ApplicationRecord
   #部分一致検索
   def self.looks(search, word)
     if search == "partial"
-      @customer = Customer.where("first_name LIKE?","%#{word}%")
+  @customer = Customer.where("first_name LIKE ? OR last_name LIKE ?", "%#{word}%", "%#{word}%")
+                   .or(Customer.where("CONCAT(first_name,last_name) LIKE ?", "%#{word}%"))
     end
   end
 
